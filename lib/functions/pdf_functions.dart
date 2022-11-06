@@ -27,7 +27,8 @@ savePdfFile(Uint8List data, String name) async {
       status = await Permission.storage.request();
     }
     if (status.isGranted) {
-      path = Directory('/storage/emulated/0/Download').path;
+      // path = (await getApplicationDocumentsDirectory()).path;
+       path = Directory('/storage/emulated/0/Download').path;
     }
   }
   File pdfFile = await File('$path/$name').create();
