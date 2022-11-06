@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screen_to_pdf/functions/pdf_functions.dart';
 import 'package:flutter_screen_to_pdf/pages/pdf_show.dart';
@@ -23,14 +25,14 @@ class AppBarButton extends StatelessWidget {
                   ListTile(
                       onTap: () async {
                         //Navigator.of(context).pop();
-                        final screenShot = await screenshotController.capture();
+                        Uint8List? screenShot = await screenshotController.capture();
                         if (screenShot != null) {
                           await screenToPdf(screenShot)
                               .then((value) => Navigator.of(context).push(
                                     MaterialPageRoute(
                                       builder: (BuildContext context) =>
                                           PdfShowScreen(
-                                        fileNameWithoutExtension: "pdf-file",
+                                        fileNameWithoutExtension: "untiled",
                                         uint8List: value,
                                       ),
                                     ),
