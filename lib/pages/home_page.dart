@@ -4,9 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screen_to_pdf/widgets/app_bar_btn.dart';
 import 'package:screenshot/screenshot.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
-  Uint8List? _imageFile;
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   ScreenshotController screenshotController = ScreenshotController();
 
   @override
