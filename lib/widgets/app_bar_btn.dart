@@ -18,13 +18,14 @@ class AppBarButton extends StatelessWidget {
     return IconButton(
       onPressed: () {
         showBottomSheet(
+           backgroundColor: Colors.yellow,
             context: context,
             builder: (BuildContext context) {
               return Wrap(
                 children: [
                   ListTile(
                       onTap: () async {
-                        //Navigator.of(context).pop();
+                        Navigator.of(context).pop();
                         Uint8List? screenShot = await screenshotController.capture();
                         if (screenShot != null) {
                           await screenToPdf(screenShot)
